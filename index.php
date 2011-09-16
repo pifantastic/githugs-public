@@ -16,13 +16,13 @@ try {
     $github->getUserApi()->follow($_POST['github_user']);
     $message = "You've been added!  Prepare yourself for hugs.";
   }
-  
+
   $m = new Mongo($config['db']['connection_string']);
   $db = $m->selectDB($config['db']['name']);
 }
 catch (Github_HttpClient_Exception $e) {
   echo '<h1>I can\'t find ' . htmlspecialchars($_POST['github_user']) . '</h1>' .
-    '<p><a href="/">Try hugging a different user/repo</h1>';
+    '<p><a href="/">Try hugging a different user/repo</p>';
   exit();
 }
 catch (MongoConnectionException $e) {
