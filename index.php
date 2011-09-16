@@ -8,15 +8,22 @@ Github_Autoloader::register();
 $github = new Github_Client();
 
 $message = FALSE;
-if (isset($_POST['github_user'])) {
-  $github->authenticate('githugs', $config['github']['secret']);
-  $github->getUserApi()->follow($_POST['github_user']);
-  $message = "You've been added!  Prepare yourself for hugs.";
-}
 
 try {
+
+  if (isset($_POST['github_user'])) {
+    $github->authenticate('githugs', $config['github']['secret']);
+    $github->getUserApi()->follow($_POST['github_user']);
+    $message = "You've been added!  Prepare yourself for hugs.";
+  }
+  
   $m = new Mongo($config['db']['connection_string']);
   $db = $m->selectDB($config['db']['name']);
+}
+catch (Github_HttpClient_Exception $e) {
+  echo '<h1>I can\'t find ' . htmlspecialchars($_POST['github_user']) . '</h1>' .
+    '<p><a href="/">Try hugging a different user/repo</h1>';
+  exit();
 }
 catch (MongoConnectionException $e) {
   echo '<h1>Database connection failure</h1><hr><p>I blame myself :(';
