@@ -1,0 +1,11 @@
+header
+  h1 githu.gs
+  h2 giving hugs to hard working devs since 2011
+
+  ul#hugs
+    - each hug in hugs
+      li
+        p 
+          = hug.hug
+        a(href=hug.url)= hug.project
+        span.time= ago(hug.time) + ' ago'

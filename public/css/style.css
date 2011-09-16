@@ -1,0 +1,45 @@
+body {
+  padding: 50px;
+  font-family: arial, serif;
+  background-color: #F9FFDB;
+}
+
+h1 { 
+  font-family: 'Sniglet', arial, serif;
+  font-size: 72px;
+  margin-bottom: 30px;
+  color: #FF005E;
+}
+
+h2 {
+  font-family: 'Coming Soon', arial, serif;
+  font-size: 20px;
+}
+
+ul#hugs {
+  padding: 0;
+}
+
+  ul#hugs li {
+    list-style: none;
+    font-size: 12px;
+    margin: 10px 0;
+    font-size: 12px;
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    padding: 0 15px 10px 10px;
+    line-height: 1.5em;
+    color: #444;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.07) 0 1px 2px inset;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+    ul#hugs li a {
+      font-weight: bold;
+      font-size: 14px;
+      font-family: 'Carter One', arial, serif;
+      color: #003EFF;
+      padding: 0 5px 0 0;
+    }
